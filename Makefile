@@ -1,29 +1,30 @@
 CWD = $(CURDIR)
 
 .PHONY: go
-go: cogserver
+go: opencog
 	docker run -it $<
 
-.PHONY: cogserver
-cogserver:
+.PHONY: opencog
+opencog:
 	docker build -t $@ $@/
 
 .PHONY: gitclone
-gitclone:
+gitclone: update
 	docker build -t $@ $@/
 
 .PHONY: buildnode
 buildnode:
 	docker build -t $@ $@/
 
+READMEZ = gitclone/cogutils/README.md gitclone/atomspace/README.md gitclone/opencog/README.md 
 .PHONY: update
-update: cogutils/README.md atomspace/README.md opencog/README.md
+update: $(READMEZ)
 	cd cogutils ; git pull --depth=1
 .PHONY: clone
-clone: cogutils/README.md atomspace/README.md opencog/README.md
-cogutils/README.md:
-	git clone -o gh --depth=1 https://github.com/opencog/cogutils.git
-atomspace/README.md:
-	git clone -o gh --depth=1 https://github.com/opencog/atomspace.git
-opencog/README.md:
-	git clone -o gh --depth=1 https://github.com/opencog/opencog.git
+clone: $(READMEZ)
+gitclone/cogutils/README.md:
+	cd gitclone ; git clone -o gh --depth=1 https://github.com/opencog/cogutils.git
+gitclone/atomspace/README.md:
+	cd gitclone ; git clone -o gh --depth=1 https://github.com/opencog/atomspace.git 
+gitclone/opencog/README.md:
+	cd gitclone ; git clone -o gh --depth=1 https://github.com/opencog/opencog.git

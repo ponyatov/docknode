@@ -9,4 +9,4 @@ MAINTAINER Dmitry Ponyatov "dponyatov@gmail.com"
 RUN apt update
 RUN apt -y upgrade
 RUN apt-get -y autoclean
-RUN apt -y install git cmake make gcc g++ 
+RUN apt -y install git cmake make gcc g++ binutils-dev
