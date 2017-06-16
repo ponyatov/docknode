@@ -1,14 +1,15 @@
-
-FROM alpine
+FROM gitclone
+#FROM alpine
 #FROM scratch
 #FROM busybox
 #FROM ubuntu:14.04
 
-MAINTAINER dponyatov@gmail.com
-#LABEL maintainer="Dmitry Ponyatov"
+MAINTAINER Dmitry Ponyatov "dponyatov@gmail.com"
 
-#ENTRYPOINT ["/bin/sh"]
+# RUN apk add --no-cache bash sudo
+# RUN apk add --no-cache binutils llvm4
 
-RUN apk update
-RUN apk upgrade
-RUN apk add --no-cache binutils gcc make git llvm4
+#ADD https://github.com/opencog/ocpkg/raw/master/ocpkg /tmp/ocpkg
+#RUN chmod +x /tmp/ocpkg
+#RUN /tmp/ocpkg -rdpvl
+
