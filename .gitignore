@@ -1,4 +1,5 @@
 *~
 *.swp
 cogutils/
-
+atomspace/
+opencog/
