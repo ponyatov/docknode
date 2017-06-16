@@ -10,4 +10,5 @@ MAINTAINER dponyatov@gmail.com
 #ENTRYPOINT ["/bin/sh"]
 
 RUN apk update
+RUN apk upgrade
 RUN apk add --no-cache binutils gcc make git llvm4
