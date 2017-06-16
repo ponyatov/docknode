@@ -19,7 +19,9 @@ buildnode:
 READMEZ = gitclone/cogutils/README.md gitclone/atomspace/README.md gitclone/opencog/README.md 
 .PHONY: update
 update: $(READMEZ)
-	cd cogutils ; git pull --depth=1
+	cd gitclone/cogutils ; git pull --depth=1
+	cd gitclone/atomspace ; git pull --depth=1
+	cd gitclone/opencog ; git pull --depth=1
 .PHONY: clone
 clone: $(READMEZ)
 gitclone/cogutils/README.md:

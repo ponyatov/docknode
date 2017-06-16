@@ -12,3 +12,6 @@ MAINTAINER Dmitry Ponyatov "dponyatov@gmail.com"
 #ADD https://github.com/opencog/ocpkg/raw/master/ocpkg /tmp/ocpkg
 #RUN chmod +x /tmp/ocpkg
 #RUN /tmp/ocpkg -rdpvl
+
+#RUN mkdir /tmp/cogutils /tmp/atomspace /tmp/opencog
+#RUN cd /tmp/cogutils ; cmake /cogutils
