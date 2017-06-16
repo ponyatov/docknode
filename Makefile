@@ -1,11 +1,11 @@
 CWD = $(CURDIR)
 
 .PHONY: go
-go: opencog
+go: cogserver
 	docker run -it $<
 
-.PHONY: opencog
-opencog:
+.PHONY: cogserver
+cogserver:
 	docker build -t $@ $@/
 
 .PHONY: gitclone
@@ -17,9 +17,8 @@ buildnode:
 	docker build -t $@ $@/
 
 .PHONY: update
-update: clone
+update: cogutils/README.md atomspace/README.md opencog/README.md
 	cd cogutils ; git pull --depth=1
-
 .PHONY: clone
 clone: cogutils/README.md atomspace/README.md opencog/README.md
 cogutils/README.md:
