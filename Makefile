@@ -1,8 +1,9 @@
 CWD = $(CURDIR)
 
 .PHONY: go
-go: opencog
+go:
 	docker run -it $<
+#	 ls -la /tmp/
 
 .PHONY: opencog
 opencog:
